@@ -1,0 +1,68 @@
+$small: 700px;
+$s-medium: 701px;
+$l-medium: 1299px;
+$large: 1300px;
+
+form{
+    border: black 1px solid;
+    display: grid;
+    border-radius: 5px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "label label label label"
+        "destination destination destination destination"
+        "date-field date-field date-field date-field"
+        ". lookup-button lookup-button .";
+    padding: 5px 20px;
+    background-color: #f2f8fc;
+    margin: 5% 8%;
+    font-family: Helvetica, sans-serif;
+
+    input[type='text']{
+        grid-area: destination;
+        margin-right: 25px;
+        margin-left: 25px;
+        padding: 5px 20px;
+    }
+
+    button[type="submit"] {
+        padding: 5px 20px;
+        grid-area: lookup-button;
+    }
+
+    .date-field {
+        display: flex;
+        grid-area: date-field;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 5px 20px;
+
+        @media (max-width: $small){
+            font-size: 0.7em;
+        }
+
+        @media (min-width: $s-medium){
+            font-size: 0.9em;
+        }
+    }
+
+    label[for="city"]{
+        grid-area: label;
+        color: black;
+        font-size: 0.7em;
+        margin-bottom: 5px;
+
+    }
+
+    label[for="start"]{
+        grid-area: label-start;
+        text-align: center;
+    }
+
+    label[for="end"]{
+        grid-area: label-end;
+        text-align: center;
+    }
+}

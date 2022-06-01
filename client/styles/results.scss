@@ -1,0 +1,368 @@
+$small: 700px;
+$s-medium: 701px;
+$l-medium: 1299px;
+$large: 1300px;
+
+main {
+    margin: 5% 8%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    grid-row-gap: 25px;
+
+    .main-div {
+        border: 1px solid black;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 30px auto;
+        grid-template-areas:
+        "title"
+        "weather-picture";
+        border-radius: 5px;
+
+        .destination-title {
+            grid-area: title;
+            background-color: #f2f8fc;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 10px;
+            font-size: 1.5em;
+        }
+
+        @media (min-width: $large) {
+            .results {
+                grid-area: weather-picture;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                //grid-auto-rows: minmax(300px, auto);
+                grid-template-rows: 300px;
+                grid-template-areas: 
+                    "picture weather-box weather-box";
+                font-family: Helvetica, sans-serif;
+                font-size: 0.7em;
+
+                .picture-box {
+                    grid-area: picture;
+                    max-height: 300px;
+                    max-width: 400px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    //border: 1px solid red;
+                    place-self: center;
+                }
+
+                .weather-box {
+                    grid-area: weather-box;
+                    display: grid;
+                    grid-auto-columns: 280px;
+                    //grid-template-rows: repeat(8, 30px);
+                    grid-template-rows: repeat(8, auto);
+                    //border: 1px solid green;
+                    grid-auto-flow: column;
+                    grid-row-gap: 5px;
+                    grid-column-gap: 15px;
+                    padding: 15px;
+
+                    .weather-display {
+                        display: grid;
+                        grid-template-columns: 80px 150px 50px;
+                        grid-template-rows: auto;
+                        grid-template-areas: "date weather-data icon";
+                        //border: 1px solid pink;
+                        border-bottom: 1px solid #f2f8fc;
+
+                        .date-box{
+                            grid-area: date;
+                            border-right: 1px black solid;
+                            margin: 2px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            font-weight: bold;
+                        }
+
+                        .text-box{
+                            grid-area: weather-data;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+
+                        .icon-box {
+                            grid-area: icon;
+                            width: 30px;
+                            height: 30px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center; 
+                        }
+                    }
+
+                    .weather-display {
+                        display: grid;
+                        grid-template-columns: 80px 150px 50px;
+                        grid-template-rows: auto;
+                        grid-template-areas: "date weather-data icon";
+                        //border: 1px solid pink;
+                        border-bottom: 1px solid #f2f8fc;
+
+                        .date-box{
+                            grid-area: date;
+                            border-right: 1px black solid;
+                            margin: 2px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            font-weight: bold;
+                        }
+
+                        .text-box{
+                            grid-area: weather-data;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+
+                        .icon-box {
+                            grid-area: icon;
+                            width: 30px;
+                            height: 30px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (min-width: $s-medium) and (max-width: $l-medium) {
+            .results {
+                border: 1px solid #f2f8fc;
+                grid-area: weather-picture;
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                grid-template-areas: 
+                    "picture" 
+                    "weather-box" 
+                    "weather-box";
+                font-family: Helvetica, sans-serif;
+                font-size: 0.7em;
+                place-self: center;
+
+                .picture-box {
+                    grid-area: picture;
+                    max-height: 300px;
+                    max-width: 400px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    //border: 1px solid red;
+                    place-self: center;
+                }
+
+                .weather-box {
+                    grid-area: weather-box;
+                    display: grid;
+                    grid-auto-columns: 280px;
+                    //grid-template-rows: repeat(8, 30px);
+                    grid-template-rows: repeat(8, auto);
+                    //border: 1px solid green;
+                    grid-auto-flow: column;
+                    grid-row-gap: 5px;
+                    grid-column-gap: 15px;
+                    padding: 15px;
+
+                    .weather-display {
+                        display: grid;
+                        grid-template-columns: 80px 150px 50px;
+                        grid-template-rows: auto;
+                        grid-template-areas: "date weather-data icon";
+                        //border: 1px solid pink;
+                        border-bottom: 1px solid #f2f8fc;
+
+                        .date-box{
+                            grid-area: date;
+                            border-right: 1px black solid;
+                            margin: 2px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            font-weight: bold;
+                        }
+
+                        .text-box{
+                            grid-area: weather-data;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+
+                        .icon-box {
+                            grid-area: icon;
+                            width: 30px;
+                            height: 30px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center; 
+                        }
+                    }
+
+                    .weather-display {
+                        display: grid;
+                        grid-template-columns: 80px 150px 50px;
+                        grid-template-rows: auto;
+                        grid-template-areas: "date weather-data icon";
+                        //border: 1px solid pink;
+                        border-bottom: 1px solid #f2f8fc;
+
+                        .date-box{
+                            grid-area: date;
+                            border-right: 1px black solid;
+                            margin: 2px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            font-weight: bold;
+                        }
+
+                        .text-box{
+                            grid-area: weather-data;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+
+                        .icon-box {
+                            grid-area: icon;
+                            width: 30px;
+                            height: 30px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (max-width: $small) {
+            .results {
+                grid-area: weather-picture;
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                grid-template-areas: 
+                    "picture" 
+                    "weather-box" 
+                    "weather-box";
+                font-family: Helvetica, sans-serif;
+                font-size: 0.7em;
+                place-self: center;
+
+                .picture-box {
+                    grid-area: picture;
+                    max-height: 250px;
+                    max-width: 300px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    //border: 1px solid red;
+                    place-self: center;
+                }
+
+                .weather-box {
+                    border: 1px solid #f2f8fc;
+                    grid-area: weather-box;
+                    display: grid;
+                    grid-template-columns: 280px;
+                    //grid-template-rows: repeat(8, 30px);
+                    grid-auto-rows: 30px;
+                    //border: 1px solid green;
+                    //grid-auto-flow: column;
+                    grid-row-gap: 5px;
+                    grid-column-gap: 15px;
+                    padding: 15px;
+                    place-self: center;
+
+                    .weather-display {
+                        display: grid;
+                        grid-template-columns: 80px 150px 50px;
+                        grid-template-rows: auto;
+                        grid-template-areas: "date weather-data icon";
+                        //border: 1px solid pink;
+                        border-bottom: 1px solid #f2f8fc;
+
+                        .date-box{
+                            grid-area: date;
+                            border-right: 1px black solid;
+                            margin: 2px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            font-weight: bold;
+                        }
+
+                        .text-box{
+                            grid-area: weather-data;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+
+                        .icon-box {
+                            grid-area: icon;
+                            width: 30px;
+                            height: 30px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center; 
+                        }
+                    }
+
+                    .weather-display {
+                        display: grid;
+                        grid-template-columns: 80px 150px 50px;
+                        grid-template-rows: auto;
+                        grid-template-areas: "date weather-data icon";
+                        //border: 1px solid pink;
+                        border-bottom: 1px solid #f2f8fc;
+
+                        .date-box{
+                            grid-area: date;
+                            border-right: 1px black solid;
+                            margin: 2px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            font-weight: bold;
+                        }
+
+                        .text-box{
+                            grid-area: weather-data;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+
+                        .icon-box {
+                            grid-area: icon;
+                            width: 30px;
+                            height: 30px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
