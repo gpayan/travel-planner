@@ -38,7 +38,7 @@ app.post('/', async (req, res) => {
     try {
         const coordinates = await getCoordinates(city);
 
-        if(coordinates) {
+        if(coordinates.totalResultsCount > 0) {
             const latitude = coordinates.geonames[0].lat;
             const longitude = coordinates.geonames[0].lng;
 

@@ -1,8 +1,4 @@
 function cleanupDate(date) {
-
-    console.log('In cleanup function');
-    console.log('date', date);
-
     const rawDate = new Date(date);
 
     const raw_day = rawDate.getDay();
@@ -98,11 +94,6 @@ function cleanupDate(date) {
 
     const date_long = day_long + ', ' + month_long + ' ' + day_number;
     const date_short = day_short + ', ' + month_short + ' ' + day_number;
-
-    console.log('We are in cleanupDate');
-
-    console.log('date_long in cleanupDate:', date_long);
-    console.log('date_short in cleanupDate:', date_short);
 
     return {
         date_long : date_long,

@@ -1,25 +1,26 @@
 const url = 'http://localhost:8081/';
 import { displayResults } from './js/displayResults';
+import { validateReturnedData } from './js/validateReturnedData';
+import { configureDatesInput, updateDatesInput } from './js/configureDatesInput';
+import { formValidation } from './js/formValidation';
+
 import './styles/form.scss';
 import './styles/results.scss';
 import './styles/header.scss';
 import './styles/footer.scss';
 
-/*
-async function sendData(url, options) {
-    const data = await fetch(url, options)
-    .then(res => {
-        console.log('We are in sendData/then');
-        return res.json();
-    })
-    .then(response_data => {
-        console.log('We in sendData/then/then');
-        console.log(response_data);
-        console.log('Type de response_data', typeof(response_data));
-        return response_data;
-    });
-}
-*/
+const startDateElement = document.querySelector('#start');
+const endDateElement = document.querySelector('#end');
+document.addEventListener('DOMContentLoaded', () => {
+    configureDatesInput(startDateElement, endDateElement);
+});
+
+startDateElement.addEventListener('change', (event) => {
+    console.log('Value of event.target.dispatchEvent');
+    console.log(event.target.id);
+    updateDatesInput(event.target.value, event.target.id, startDateElement, endDateElement);
+});
+
 
 const button = document.querySelector('#tripButton');
 button.addEventListener('click', async (event) => {
@@ -31,9 +32,14 @@ button.addEventListener('click', async (event) => {
     const startDate = document.getElementById('start').value;
     const endDate = document.getElementById('end').value;
 
+    const formValidated = formValidation(city_entered, startDate, endDate);
+
+    if (formValidated.validation === false){
+        alert(formValidated.message);
+        return false;
+    }
+
     console.log('Dates of the trip', startDate, endDate);
-    console.log(typeof(startDate));
-    console.log(typeof(endDate));
     
     const trip = {
         city: city_entered,
@@ -51,29 +57,17 @@ button.addEventListener('click', async (event) => {
     }
 
     const data = await fetch(url, options);
-    const data2 = await data.json();
-    /*
-    .then(res => {
-        console.log('In the fetch');
-        return res.json();
-    })
-    .then(response_data => {
-        console.log('we are in the second then!');
-        console.log(response_data);
-        console.log('done with fetch');
-    });
-    */
+    const dataObject = await data.json();
 
-    console.log('Type de data', typeof(data2));
-    console.log('value of data', data2);
+    console.log('Type de data', typeof(dataObject));
+    console.log('value of data', dataObject);
 
-    const displayAction = displayResults(data2);
-    console.log(displayAction);
+    if (validateReturnedData(dataObject) === true){
+        const displayAction = displayResults(dataObject);
+        console.log(displayAction);    
+    }
 
-/*
-    const data = await sendData(url, options)
-    //console.log('Type de data', typeof(data));
-    //console.log('Valeur de data', data);   
-*/    
+    document.getElementById('city').value = '';
+    
     console.log('C est la fin du script');
 });

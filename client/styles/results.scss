@@ -146,7 +146,7 @@ main {
                 display: grid;
                 grid-template-columns: 1fr;
                 grid-template-rows: auto;
-                grid-template-areas: 
+                grid-template-areas:
                     "picture" 
                     "weather-box" 
                     "weather-box";
@@ -174,9 +174,11 @@ main {
                     grid-template-rows: repeat(8, auto);
                     //border: 1px solid green;
                     grid-auto-flow: column;
-                    grid-row-gap: 5px;
+                    //grid-row-gap: 5px;
                     grid-column-gap: 15px;
-                    padding: 15px;
+                    padding-left: 15px;
+                    padding-top: 5px;
+                    padding-bottom: 5px;
 
                     .weather-display {
                         display: grid;

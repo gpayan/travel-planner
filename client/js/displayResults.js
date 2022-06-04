@@ -2,8 +2,8 @@ import { cleanupDate } from './cleanupDate';
 
 function displayResults(results) {
 
-    console.log('we are in display results');
-    console.log(results);
+    //console.log('we are in display results');
+    //console.log(results);
 
     //getting a handle on main element
     const element = document.querySelector('main');
@@ -20,7 +20,7 @@ function displayResults(results) {
     destinationElement.classList.add("destination-title");
 
     const imageElement = document.createElement('img');
-    console.log(results.image);
+    //console.log(results.image);
     imageElement.setAttribute("src", results.image);
     imageElement.classList.add("picture-box");
 
@@ -32,8 +32,8 @@ function displayResults(results) {
 
     const weatherData = results.weather;
     
-    console.log(weatherData);
-    console.log('Length of WeatherData', weatherData.length);
+    //console.log(weatherData);
+    //console.log('Length of WeatherData', weatherData.length);
 
     for (let i = 0; i< weatherData.length; i++){
         
@@ -44,8 +44,8 @@ function displayResults(results) {
         dateDiv.classList.add("date-box");
 
         const formatted_dates = cleanupDate(weatherData[i].date);
-        console.log('Long date:', formatted_dates.date_long);
-        console.log('Short date:', formatted_dates.date_short);
+        //console.log('Long date:', formatted_dates.date_long);
+        //console.log('Short date:', formatted_dates.date_short);
 
         dateDiv.innerText = formatted_dates.date_short;
 
@@ -86,10 +86,6 @@ function displayResults(results) {
     mainDiv.appendChild(newDiv);
 
     fragment.appendChild(mainDiv);
-
-    console.log('THE VALUE OF FRAGMENT IS:');
-    console.log(fragment);
-
     element.appendChild(fragment);
 
     return({message: 'success'});
