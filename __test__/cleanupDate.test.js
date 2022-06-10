@@ -10,8 +10,8 @@ describe('Testing the cleanupDate function', () => {
     test('Testing the return value of cleanupdate', () => {
         const today = new Date();
         expect(cleanupDate(today)).toEqual({
-            date_long: 'Saturday, June 4',
-            date_short: 'Sat, Jun 4'
+            date_long: 'Friday, June 10',
+            date_short: 'Fri, Jun 10'
         });
     });
 
