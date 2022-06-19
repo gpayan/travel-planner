@@ -18,12 +18,14 @@ app.use(cors({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
+app.use(express.static('dist'));
+
 const server = app.listen(8081, () => {
     console.log('Server up and running on port 8081');
 });
 
 app.get('/', function (req, res) {
-    res.sendFile(path.resolve('client/views/index.html'));
+    res.sendFile(path.resolve('index.html'));
 });
 
 app.post('/', async (req, res) => {
