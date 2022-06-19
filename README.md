@@ -12,7 +12,7 @@ To launch the service:
 3. Then start the server by running: `npm start`
 The server runs on port 8081.
 
-4. In dist/ folder, open the `index.html` file.
+4. Launch browser and connect to `http://localhost:8081`
 
 5. Enter the destination in France and dates, then click on the 'Look up weather' button.
 
